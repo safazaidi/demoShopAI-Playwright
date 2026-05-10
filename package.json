@@ -1,0 +1,26 @@
+{
+  "name": "cucumber-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@playwright/test": "^1.59.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.14.2",
+    "multiple-cucumber-html-reporter": "^3.10.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "description": ""
+}
