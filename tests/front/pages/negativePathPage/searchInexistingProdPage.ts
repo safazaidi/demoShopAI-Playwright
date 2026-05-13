@@ -20,14 +20,17 @@ export class SearchInexistingProd extends BaseAction {
     }
 
     async searchInxistProd(inexistName: string){
-        await this.barreSearch.fill('inexistName') ;
+        await this.barreSearch.fill(inexistName) ;
         await this.btnSearch.click();
+
+        
     }
 
     async failMssgnonexistingproduct(expectedErrorMessage?: string){
         const defaultErrorMessage = 'No products were found that matched your criteria.';
-    // Si aucun message n'est fourni, on utilise le message par défaut
-       await expect(this.errorMssg, expectedErrorMessage || defaultErrorMessage).toBeVisible();
+        await expect(this.errorMssg).toHaveText(expectedErrorMessage || defaultErrorMessage);
+
+        
     }
 }
        

@@ -9,7 +9,7 @@ export const testConfig = {
   
   // Login credentials
   credentials: {
-    userEmail: 'testersoftware123@gmail.com',
+    userEmail: 'testersoftware02723@gmail.com',
     userFirsname: 'tester',
     userLastName: 'software',
     password: 'AZErtyuiop789+@',

@@ -1,0 +1,946 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "password-reset-api;request-password-reset-with-a-valid-email",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Request password reset with a valid email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 165110200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have a valid email \"test.user@email.com\"",
+            "match": {
+              "location": "tests\\back\\api\\steps\\PasswordResetSteps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3759700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I send a password reset request",
+            "match": {
+              "location": "tests\\back\\api\\steps\\PasswordResetSteps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 824035400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "the API response status should be 200",
+            "match": {
+              "location": "tests\\back\\api\\steps\\PasswordResetSteps.ts:18"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5313799,
+              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at Proxy.<anonymous> (C:\\Users\\DELL\\demoWebIA\\coworking_Playwright\\webShopIA\\node_modules\\playwright\\lib\\matchers\\expect.js:213:24)\n    at DefaultCustomWorld.<anonymous> (C:\\Users\\DELL\\demoWebIA\\coworking_Playwright\\webShopIA\\tests\\back\\api\\steps\\PasswordResetSteps.ts:19:50)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "the password reset request should be successful",
+            "match": {
+              "location": "tests\\back\\api\\steps\\PasswordResetSteps.ts:22"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 872633799
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBGQUlMRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAQAElEQVR4nOzYAQ0AIAzAsIfg3/LxwVoZvbs7AAAAwO/OAAAAAAEKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAfFd6rQAAAnpJREFUAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQMIDAAD//6mCWsQAAAAGSURBVAMA6fAJAHkTrUUAAAAASUVORK5CYII=",
+                "mime_type": "image/png"
+              }
+            ]
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "password-reset-api",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Password reset API",
+    "tags": [],
+    "uri": "tests\\back\\api\\features\\password-reset.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-with-valid-credials;the-user-should-login-with-valid-credials",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "The user should login with valid credials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 185408999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I want to navigate to the homePage as a valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5050281300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "Homepage loads successfully for valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40571599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "User want to click on 'Log in' link as a valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 352145899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "Login page is displayed for valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41325700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "User want to Enter valid credentials as a valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 799843400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "Fields accept input for valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9782699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "User want to Submit the login form as a valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 584899099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "User is logged in as a valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:46"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 58969100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "Account links are visible for valid user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\loginValidStep.ts:51"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21524300
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 863486600
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag3",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-with-valid-credials",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login With Valid Credials",
+    "tags": [],
+    "uri": "tests\\front\\feature\\happyPath\\loginValidCredentials.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "register-new-user;register-new-user-with-valid-data",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "register new user with valid data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 193773199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I want to navigate to the homePage as a new user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\registerNewUserStep.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3349625000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I should see the homePage as a new user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\registerNewUserStep.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39837100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I click on the register button as a new user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\registerNewUserStep.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 399990399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "I should see the registration form as a new user",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\registerNewUserStep.ts:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44942800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "I fill in the registration form with valid data",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\registerNewUserStep.ts:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 810307899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I should see a confirmation message",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\registerNewUserStep.ts:58"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 384239600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 844014699
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag1",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "register-new-user",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "register new user",
+    "tags": [],
+    "uri": "tests\\front\\feature\\happyPath\\registerNewUser.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "search-by-pressing;search-product-by-pressing-enter",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Search product by pressing Enter",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 185709900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the home page for search by pressing",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\searchByPressingStep.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5364464800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "the user enters \"Book\" in the search bar and presses Enter for search by pressing",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\searchByPressingStep.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 598740499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "search results should be displayed for search by pressing",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\searchByPressingStep.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 138802199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 787994999
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag6",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "search-by-pressing",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Search By Pressing",
+    "tags": [],
+    "uri": "tests\\front\\feature\\happyPath\\searchByPressing.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "search-with-exact-product;search-product-with-exact-product-name",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Search product with exact product name",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 201597900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the home page for search by exact name",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\searchExactProdStep.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6502937300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "the user enters \"laptop\" in the search bar clicks on the search button for exact name",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\searchExactProdStep.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 626253499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "search results should be displayed for search by exact name",
+            "match": {
+              "location": "tests\\front\\steps\\happySteps\\searchExactProdStep.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 51532900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 805962399
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag5",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "search-with-exact-product",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Search with exact product",
+    "tags": [],
+    "uri": "tests\\front\\feature\\happyPath\\searchExactName.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-with-invalid-credentials;user-attempts-to-log-in-with-invalid-credentials",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "User attempts to log in with invalid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 239287400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am on the homepage",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\loginInvalidSteps.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9082531600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I click on the \"Log in\" link",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\loginInvalidSteps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 347194499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the login page should be displayed",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\loginInvalidSteps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 66768700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I enter invalid credentials",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\loginInvalidSteps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3613599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "the fields should accept input",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\loginInvalidSteps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 711339299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "an error message about invalid login should be displayed",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\loginInvalidSteps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 353975100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 824653299
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag4",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-with-invalid-credentials",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login with Invalid Credentials",
+    "tags": [],
+    "uri": "tests\\front\\feature\\negativePath\\loginInvalidCrendials.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "register-with-existing-email;register-new-user-with-existing-email",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "register new user with existing email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 196250700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I want to navigate to the homePage as an existing user",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\registerExistingEmailStep.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4468680400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I should see the homePage as an existing user",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\registerExistingEmailStep.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 34306100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I click on the register button as an existing user",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\registerExistingEmailStep.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 518731200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I should see the registration form as an existing user",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\registerExistingEmailStep.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45249400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I fill in the registration form with an existing email",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\registerExistingEmailStep.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 939122400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "I should see an error message indicating that the email is already in use",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\registerExistingEmailStep.ts:39"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53598600
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 797129700
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag2",
+            "line": 2
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "register-with-existing-email",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "register with existing email",
+    "tags": [],
+    "uri": "tests\\front\\feature\\negativePath\\registerWithExistingEmail.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "search-for-a-non-existing-product;search-for-a-non-existing-product",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Search for a non-existing product",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 205534699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the home page",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\searchInexistingProdStep.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9696066499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "the user enters \"Samsung S99 Ultra\" in the search bar and clicks on the search button",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\searchInexistingProdStep.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 642517599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "a message \"No products were found that matched your criteria.\" should be displayed",
+            "match": {
+              "location": "tests\\front\\steps\\negativeSteps\\searchInexistingProdStep.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 74566599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 804896800
+            },
+            "embeddings": [
+              {
+                "data": "QnJvd3NlcjogY2hyb21pdW0gfCBWZXJzaW9uOiAxNDcuMC43NzI3LjE1",
+                "mime_type": "text/plain"
+              },
+              {
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
+                "mime_type": "text/plain"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@tag7",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "search-for-a-non-existing-product",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Search for a non-existing product",
+    "tags": [],
+    "uri": "tests\\front\\feature\\negativePath\\searchInxistingProd.feature"
+  }
+]

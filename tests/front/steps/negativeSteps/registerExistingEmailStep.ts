@@ -1,6 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import { RegisterExistingPage } from "../../pages/negativePathPage/registerExistingEmailPage";
+import  {testConfig}  from '../../config/testConfig';
 
 // You may need to adjust the path to match your project structure
 
@@ -31,7 +32,7 @@ Then('I should see the registration form as an existing user', async function ()
 
 When('I fill in the registration form with an existing email', async function () {
     // Replace with actual test data for existing user
-    await registerPage.fillRegistrationFormWithExistingEmail('John', 'Doe', 'existing@email.com');
+    await registerPage.fillRegistrationFormWithExistingEmail('John', 'Doe', testConfig.credentials.userEmail, 'deft754');
     await registerPage.submitRegistrationForm();
 });
 

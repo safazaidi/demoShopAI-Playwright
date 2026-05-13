@@ -14,7 +14,7 @@ export class SearchByPressing extends BaseAction{
         super(page)
         this.page = page;
         this.actions = new BaseAction(page);
-        this.inputSearch = page.getByRole('textbox');
+        this.inputSearch = page.locator('#small-searchterms');
         this.msggresult =  page.getByRole('textbox', { name: 'Search keyword:' })
 
     }

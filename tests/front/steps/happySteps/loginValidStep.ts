@@ -33,74 +33,27 @@ When('User want to Enter valid credentials as a valid user', async function () {
 
 
 Then('Fields accept input for valid user', async function () {
-    await expect(loginPage.emilInput).toBeVisible();
-    await expect(loginPage.mdpInput).toBeVisible();
+    await loginPage.expectFieldInput()
+    
 });
 
 
 When('User want to Submit the login form as a valid user', async function () {
-    await loginPage.btnLogin.click();
+    await loginPage.clickElementSubmit();
 });
 
 
 Then('User is logged in as a valid user', async function () {
-    await loginPage.expectLoginSucess();
+    await loginPage.expectUserIsLoggedIn();
 });
 
 
 Then('Account links are visible for valid user', async function () {
-    expect(await loginPage.areAccountLinksVisible()).toBe(true);
+    await loginPage.expectAccountLinksAreVisible();
 });
  
  
  
  
  
- /*import { Given, When, Then } from "@cucumber/cucumber";
-       
-Then('Homepage loads successfully', async function () {
-          
-});
-       
-   
-       
-When('User want to click on {string} link', async function (string) {
-           
-});
-       
-   
-       
-Then('Login page is displayed', async function () {
-           
-});
-       
-   
-       
- When('User want to Enter valid credentials', async function () {
-           
-});
-       
-   
-       
-Then('Fields accept input', async function () {
-           
-});
-       
-  
-       
-When('User want to Submit the login form', async function () {
-           
-});
-       
-  
-       
-Then('User is logged in', async function () {
-           
-});
-       
-   
-       
-Then('Account links are visible', async function () {
-           
-});*/
-       
+ 
