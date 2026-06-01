@@ -1,7 +1,7 @@
  import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import { LoginDataPage } from "../../pages/happyPathPage/loginValidDataPage";
-import  {testConfig}  from '../../config/testConfig';
+import  {testConfig}  from '../../../config/testConfig';
 
 
 let loginPage: LoginDataPage;

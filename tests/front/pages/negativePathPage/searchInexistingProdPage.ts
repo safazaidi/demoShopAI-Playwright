@@ -1,6 +1,6 @@
 import { expect, Page, Locator } from '@playwright/test';
-import  BaseAction  from '../../utils/basePage';
-import  {testConfig}  from '../../config/testConfig';
+import  BaseAction  from '../../../utils/basePage';
+import  {testConfig}  from '../../../config/testConfig';
 
 export class SearchInexistingProd extends BaseAction {
 

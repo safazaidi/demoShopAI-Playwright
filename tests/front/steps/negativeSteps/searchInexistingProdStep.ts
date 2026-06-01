@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
-import  {testConfig}  from '../../config/testConfig';
+import  {testConfig}  from '../../../config/testConfig';
 import {SearchInexistingProd} from "../../pages/negativePathPage/searchInexistingProdPage";
 import { LoginDataPage } from "../../pages/happyPathPage/loginValidDataPage";
 let loginPage: LoginDataPage;

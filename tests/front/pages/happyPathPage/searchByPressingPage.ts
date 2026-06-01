@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import BaseAction from "../../utils/basePage"
+import BaseAction from "../../../utils/basePage"
 
 export class SearchByPressing extends BaseAction{
     readonly page: Page;

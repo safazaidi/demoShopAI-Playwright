@@ -1,5 +1,5 @@
 import { expect, Page, Locator } from '@playwright/test';
-import BaseAction from '../../utils/basePage';
+import BaseAction from '../../../utils/basePage';
 
 export class RegisterExistingPage extends BaseAction {
     readonly page: Page;

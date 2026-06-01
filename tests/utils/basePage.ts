@@ -11,14 +11,13 @@ export default class BaseAction {
     this.page = page;
   }
 
-  public async clickElements(selector: string) {
-    await this.waitFor(selector);
-    await this.page.click(selector);
+  public async clickElements(selector: any) {
+    await this.page.locator(selector).click();
   }
 
-  public async fillText(selector: string, value: string) {
-    await this.waitFor(selector);
-    await this.page.fill(selector, value);
+  public async fillText(selector: any, value: any) {
+    
+    await this.page.locator(selector).fill(value)
   }
 
   public async getPageTitel() {

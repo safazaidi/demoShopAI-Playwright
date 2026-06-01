@@ -17,6 +17,7 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
+    "better-sqlite3": "^12.10.0",
     "fs-extra": "^11.2.0"
   },
   "directories": {

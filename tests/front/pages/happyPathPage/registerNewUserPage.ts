@@ -1,7 +1,7 @@
 import { expect, Page, Locator } from '@playwright/test';
-import BaseAction from '../../utils/basePage';
-import  {testConfig}  from '../../config/testConfig';
-import { EmailGenerator } from '../../utils/dataGenerator';
+import  BaseAction  from '../../../utils/basePage';
+import  {testConfig}  from '../../../config/testConfig';
+import { EmailGenerator } from '../../../utils/dataGenerator';
 
 
 

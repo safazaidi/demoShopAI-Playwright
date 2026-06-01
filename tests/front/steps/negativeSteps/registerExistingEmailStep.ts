@@ -1,7 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import { RegisterExistingPage } from "../../pages/negativePathPage/registerExistingEmailPage";
-import  {testConfig}  from '../../config/testConfig';
+import  {testConfig}  from '../../../config/testConfig';
 
 // You may need to adjust the path to match your project structure
 
