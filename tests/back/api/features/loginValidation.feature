@@ -9,5 +9,5 @@ Feature: User Authentication via Login API
     And the authentication should be successful
     And the response should contain an authentication token or session ID
     And the API response time should be less than 2 seconds
-    And the response should not expose sensitive data such as password or confidential information
+    
 

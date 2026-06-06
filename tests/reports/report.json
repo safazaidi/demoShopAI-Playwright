@@ -1,80 +1,47 @@
 [
   {
-    "description": "",
+    "description": "  As a customer\n  I want to update quantities in my cart\n  So that I can manage my purchase",
     "elements": [
       {
         "description": "",
-        "id": "user-authentication-via-login-api;successful-authentication-with-valid-credentials",
+        "id": "update-shopping-cart-quantities-via-api;quantity-updated-successfully",
         "keyword": "Scenario",
-        "line": 4,
-        "name": "Successful authentication with valid credentials",
+        "line": 12,
+        "name": "Quantity updated successfully",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 251596999
+              "duration": 208993599
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 5,
-            "name": "a registered user exists in the system",
-            "match": {
-              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:17"
-            },
+            "line": 7,
+            "name": "the test database is initialized using dbManager.js",
             "result": {
-              "status": "passed",
-              "duration": 8977899
+              "status": "undefined",
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 6,
-            "name": "the user provides valid email and password",
-            "match": {
-              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:25"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 493599
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 7,
-            "name": "the client sends a POST request to the login API",
-            "match": {
-              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:30"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 896600
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
             "line": 8,
-            "name": "the API response status code should be 200",
-            "match": {
-              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:35"
-            },
+            "name": "the database contains a user with email \"customer@example.com\"",
             "result": {
-              "status": "failed",
-              "duration": 9887400,
-              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n    at Proxy.<anonymous> (C:\\Users\\DELL\\demoWebIA\\coworking_Playwright\\webShopIA\\node_modules\\playwright\\lib\\matchers\\expect.js:213:24)\n    at DefaultCustomWorld.<anonymous> (C:\\Users\\DELL\\demoWebIA\\coworking_Playwright\\webShopIA\\tests\\back\\api\\steps\\loginValidationStep.ts:37:47)"
+              "status": "undefined",
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 9,
-            "name": "the authentication should be successful",
+            "name": "the database contains a product \"Apple iPhone 13\" priced at 999.99",
             "result": {
               "status": "undefined",
               "duration": 0
@@ -84,20 +51,27 @@
             "arguments": [],
             "keyword": "And ",
             "line": 10,
-            "name": "the response should contain an authentication token or session ID",
-            "match": {
-              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:40"
-            },
+            "name": "the user's cart contains 1 unit of \"Apple iPhone 13\" with unit price 999.99",
             "result": {
-              "status": "skipped",
+              "status": "undefined",
               "duration": 0
             }
           },
           {
             "arguments": [],
-            "keyword": "And ",
-            "line": 11,
-            "name": "the API response time should be less than 2 seconds",
+            "keyword": "When ",
+            "line": 13,
+            "name": "the client sends a PATCH request to the cart quantity API to update \"Apple iPhone 13\" quantity to 2",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the API response statuscode should be 200",
             "result": {
               "status": "undefined",
               "duration": 0
@@ -106,13 +80,20 @@
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 12,
-            "name": "the response should not expose sensitive data such as password or confidential information",
-            "match": {
-              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:45"
-            },
+            "line": 15,
+            "name": "the response should confirm the quantity is updated to 2",
             "result": {
-              "status": "skipped",
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the database cart entry should reflect quantity 2",
+            "result": {
+              "status": "undefined",
               "duration": 0
             }
           },
@@ -121,7 +102,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1856585700
+              "duration": 1533209200
             },
             "embeddings": [
               {
@@ -129,7 +110,7 @@
                 "mime_type": "text/plain"
               },
               {
-                "data": "U3RhdHVzOiBGQUlMRUQgfCBEdXJhdGlvbjogMHM=",
+                "data": "U3RhdHVzOiBVTkRFRklORUQgfCBEdXJhdGlvbjogMHM=",
                 "mime_type": "text/plain"
               },
               {
@@ -141,18 +122,18 @@
         ],
         "tags": [
           {
-            "name": "@tag9",
-            "line": 3
+            "name": "@tag11",
+            "line": 11
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "user-authentication-via-login-api",
-    "line": 2,
+    "id": "update-shopping-cart-quantities-via-api",
+    "line": 1,
     "keyword": "Feature",
-    "name": "User Authentication via Login API",
+    "name": "Update shopping cart quantities via API",
     "tags": [],
-    "uri": "tests\\back\\api\\features\\loginValidation.feature"
+    "uri": "tests\\back\\api\\features\\updateProd.feature"
   }
 ]

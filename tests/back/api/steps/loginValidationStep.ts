@@ -1,7 +1,3 @@
-//import { Given, When, Then } from '@cucumber/cucumber';
-//import { expect } from '@playwright/test';
-//import { ApiClient } from '../../src/core/apiClient';
-//import { PostsService } from '../../src/services/posts.service';
 
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
@@ -42,9 +38,6 @@ Then('the response should contain an authentication token or session ID', async 
         expect(loginResult.responseTime).toBeLessThan(2000);
     });
 
-Then('the response should not expose sensitive data such as password or confidential information', async function () {
-          
-         });
 
 
 

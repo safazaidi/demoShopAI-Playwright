@@ -42,6 +42,23 @@ class DBManager {
         )
       `);
 
+      // Create Cart table for cart quantity tests
+      this.db.exec(`
+        CREATE TABLE IF NOT EXISTS cart (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          userId INTEGER NOT NULL,
+          productId INTEGER NOT NULL,
+          quantity INTEGER NOT NULL CHECK(quantity > 0),
+          unitPrice REAL NOT NULL,
+          totalPrice REAL NOT NULL,
+          createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+          updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY(userId) REFERENCES users(id),
+          FOREIGN KEY(productId) REFERENCES products(id),
+          UNIQUE(userId, productId)
+        )
+      `);
+
       // Create PasswordResetTokens table
       this.db.exec(`
         CREATE TABLE IF NOT EXISTS passwordResetTokens (
@@ -571,6 +588,65 @@ class DBManager {
       return true;
     } catch (error) {
       console.error('Error backing up database:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Seed test data into the database
+   */
+  seedTestData() {
+    try {
+      console.log('📦 Seeding test data...');
+
+      const testProducts = [
+        {
+          name: 'Apple iPhone 13',
+          description: 'Latest Apple smartphone with advanced features',
+          price: 999.99,
+          category: 'Electronics',
+          stock: 50
+        },
+        {
+          name: 'Samsung Galaxy S21',
+          description: 'Premium Samsung smartphone',
+          price: 899.99,
+          category: 'Electronics',
+          stock: 30
+        },
+        {
+          name: 'MacBook Pro',
+          description: 'Professional laptop by Apple',
+          price: 2499.99,
+          category: 'Computers',
+          stock: 20
+        }
+      ];
+
+      // Create products if they don't exist
+      testProducts.forEach(product => {
+        try {
+          const existing = this.getProductByName(product.name);
+          if (!existing) {
+            this.createProduct(
+              product.name,
+              product.description,
+              product.price,
+              product.category,
+              product.stock
+            );
+            console.log(`✅ Seeded product: ${product.name}`);
+          } else {
+            console.log(`ℹ️ Product already exists: ${product.name}`);
+          }
+        } catch (error) {
+          console.log(`ℹ️ Product already exists: ${product.name}`);
+        }
+      });
+
+      console.log('✅ Test data seeded successfully');
+    } catch (error) {
+      console.error('Error seeding test data:', error);
       throw error;
     }
   }

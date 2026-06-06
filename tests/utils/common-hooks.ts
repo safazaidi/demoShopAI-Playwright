@@ -16,7 +16,7 @@ import {
   webkit,
   WebKitBrowser,
 } from '@playwright/test';
-import { ITestCaseHookParameter } from '@cucumber/cucumber/lib/support_code_library_builder/types';
+import type { ITestCaseHookParameter } from '@cucumber/cucumber';
 
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 
@@ -43,6 +43,10 @@ BeforeAll(async function () {
   console.log(`🚀 Launching ${config.browser} browser...`);
   browser = await browsers[config.browser].launch(config.browserOptions);
   console.log('✅ Browser launched successfully');
+
+  // Seed test data from dbManager
+  const dbManager = require('../utils/dbManager');
+  dbManager.seedTestData();
 });
 
 /**
