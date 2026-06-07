@@ -244,6 +244,20 @@ class DBManager {
       throw error;
     }
   }
+  getProductPrice(productName) {
+  try {
+    const stmt = this.db.prepare(`
+      SELECT price FROM products WHERE name = ?
+    `);
+
+    const product = stmt.get(productName);
+
+    return product?.price;
+  } catch (error) {
+    console.error('Error fetching product price:', error);
+    throw error;
+  }
+}
 
   /**
    * Get product by ID
@@ -472,6 +486,184 @@ class DBManager {
     }
   }
 
+  // ==================== CART OPERATIONS ====================
+
+  /**
+   * Add item to cart
+   */
+  addToCart(userId, productId, quantity) {
+    try {
+      const product = this.getProductById(productId);
+      if (!product) {
+        throw new Error(`Product with ID ${productId} not found`);
+      }
+
+      const totalPrice = product.price * quantity;
+
+      const stmt = this.db.prepare(`
+        INSERT INTO cart (userId, productId, quantity, unitPrice, totalPrice)
+        VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT(userId, productId) DO UPDATE SET
+          quantity = quantity + excluded.quantity,
+          totalPrice = (quantity + excluded.quantity) * unitPrice,
+          updatedAt = CURRENT_TIMESTAMP
+      `);
+      const result = stmt.run(userId, productId, quantity, product.price, totalPrice);
+      console.log(`Item added to cart - Product ID: ${productId}, Quantity: ${quantity}`);
+      return this.getCartItemByProductId(productId);
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get all cart items
+   */
+  getCartItems() {
+    try {
+      const stmt = this.db.prepare(`
+        SELECT 
+          c.id,
+          c.userId,
+          c.productId,
+          p.name as productName,
+          c.quantity,
+          c.unitPrice,
+          c.totalPrice,
+          c.createdAt,
+          c.updatedAt
+        FROM cart c
+        JOIN products p ON c.productId = p.id
+      `);
+      return stmt.all();
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get cart item by product name
+   */
+  getCartItemByProductName(productName) {
+    try {
+      const stmt = this.db.prepare(`
+        SELECT 
+          c.id,
+          c.userId,
+          c.productId,
+          p.name as productName,
+          c.quantity,
+          c.unitPrice,
+          c.totalPrice,
+          c.createdAt,
+          c.updatedAt
+        FROM cart c
+        JOIN products p ON c.productId = p.id
+        WHERE p.name = ?
+      `);
+      return stmt.get(productName);
+    } catch (error) {
+      console.error('Error fetching cart item by product name:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get cart item by product ID
+   */
+  getCartItemByProductId(productId) {
+    try {
+      const stmt = this.db.prepare(`
+        SELECT 
+          c.id,
+          c.userId,
+          c.productId,
+          p.name as productName,
+          c.quantity,
+          c.unitPrice,
+          c.totalPrice,
+          c.createdAt,
+          c.updatedAt
+        FROM cart c
+        JOIN products p ON c.productId = p.id
+        WHERE c.productId = ?
+      `);
+      return stmt.get(productId);
+    } catch (error) {
+      console.error('Error fetching cart item by product ID:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Update cart item quantity
+   */
+  updateCartItemQuantity(productName, newQuantity) {
+    try {
+      const product = this.getProductByName(productName);
+      if (!product) {
+        throw new Error(`Product '${productName}' not found`);
+      }
+
+      const cartItem = this.getCartItemByProductName(productName);
+      if (!cartItem) {
+        throw new Error(`Product '${productName}' not found in cart`);
+      }
+
+      const newTotalPrice = product.price * newQuantity;
+
+      const stmt = this.db.prepare(`
+        UPDATE cart
+        SET quantity = ?, totalPrice = ?, updatedAt = CURRENT_TIMESTAMP
+        WHERE productId = ?
+      `);
+      stmt.run(newQuantity, newTotalPrice, product.id);
+      console.log(`Cart item updated: ${productName}, New Quantity: ${newQuantity}`);
+      return this.getCartItemByProductName(productName);
+    } catch (error) {
+      console.error('Error updating cart item quantity:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Remove item from cart
+   */
+  removeFromCart(productName) {
+    try {
+      const product = this.getProductByName(productName);
+      if (!product) {
+        throw new Error(`Product '${productName}' not found`);
+      }
+
+      const stmt = this.db.prepare(`
+        DELETE FROM cart WHERE productId = ?
+      `);
+      const result = stmt.run(product.id);
+      console.log(`Item removed from cart: ${productName}`);
+      return result.changes > 0;
+    } catch (error) {
+      console.error('Error removing item from cart:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Clear all cart items
+   */
+  clearCart() {
+    try {
+      this.db.exec(`DELETE FROM cart`);
+      console.log('Cart cleared');
+      return true;
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+      throw error;
+    }
+  }
+
   // ==================== TEST DATA OPERATIONS ====================
 
   /**
@@ -518,6 +710,7 @@ class DBManager {
       this.db.exec(`
         DELETE FROM users;
         DELETE FROM products;
+        DELETE FROM cart;
         DELETE FROM passwordResetTokens;
         DELETE FROM passwordResetRequests;
         DELETE FROM testData;
@@ -535,7 +728,7 @@ class DBManager {
    */
   clearTable(tableName) {
     try {
-      const validTables = ['users', 'products', 'passwordResetTokens', 'passwordResetRequests', 'testData'];
+      const validTables = ['users', 'products', 'cart', 'passwordResetTokens', 'passwordResetRequests', 'testData'];
       if (!validTables.includes(tableName)) {
         throw new Error(`Invalid table name: ${tableName}`);
       }
@@ -556,6 +749,7 @@ class DBManager {
       return {
         totalUsers: this.db.prepare('SELECT COUNT(*) as count FROM users').get().count,
         totalProducts: this.db.prepare('SELECT COUNT(*) as count FROM products').get().count,
+        totalCartItems: this.db.prepare('SELECT COUNT(*) as count FROM cart').get().count,
         totalPasswordResets: this.db.prepare('SELECT COUNT(*) as count FROM passwordResetRequests').get().count,
         totalTestData: this.db.prepare('SELECT COUNT(*) as count FROM testData').get().count,
       };
@@ -643,6 +837,36 @@ class DBManager {
           console.log(`ℹ️ Product already exists: ${product.name}`);
         }
       });
+
+      // Create test user for cart operations
+      try {
+        const existingUser = this.getUserByEmail('testuser@example.com');
+        if (!existingUser) {
+          this.createUser('testuser@example.com', 'password123', 'Test', 'User');
+          console.log(`✅ Seeded test user`);
+        } else {
+          console.log(`ℹ️ Test user already exists`);
+        }
+      } catch (error) {
+        console.log(`ℹ️ Test user already exists`);
+      }
+
+      // Add test data to cart (for cart quantity test)
+      try {
+        const testUser = this.getUserByEmail('testuser@example.com');
+        const iphone = this.getProductByName('Apple iPhone 13');
+        
+        if (testUser && iphone) {
+          // Clear existing cart first to ensure clean state
+          this.clearCart();
+          
+          // Add iPhone to cart with quantity 1
+          this.addToCart(testUser.id, iphone.id, 1);
+          console.log(`✅ Seeded cart with Apple iPhone 13`);
+        }
+      } catch (error) {
+        console.log(`ℹ️ Cart already seeded or error during seeding`);
+      }
 
       console.log('✅ Test data seeded successfully');
     } catch (error) {

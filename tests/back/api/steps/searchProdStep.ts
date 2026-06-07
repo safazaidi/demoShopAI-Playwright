@@ -35,6 +35,10 @@ Then('the response should include at least one product with name {string}', asyn
    
        
 Then('the API response time should be less than {int} seconds', async function (seconds: number) {
+           if (typeof this.responseTime === 'number') {
+               expect(this.responseTime).toBeLessThan(seconds * 1000);
+               return;
+           }
            await searchService.expectTimeResponse(seconds * 1000);
 });
        

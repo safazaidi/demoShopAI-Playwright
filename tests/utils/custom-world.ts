@@ -25,6 +25,7 @@ import {
     testName?: string;
     startTime?: Date;
     server?: APIRequestContext;
+    responseTime?: number;
     playwrightOptions?: PlaywrightTestOptions;
   }
   

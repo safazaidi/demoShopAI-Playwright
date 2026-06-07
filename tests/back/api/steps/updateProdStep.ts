@@ -1,31 +1,24 @@
 import{ Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
+import {SearchService} from '../services/searchProdService'
+import {UpdateProd} from '../services/updateService';
+import { ApiClient } from '../../../utils/ApiClient';
 
-Given('the test database is initialized using dbManager.js', async function () {
-
-});
-
-
-
-Given('the database contains a user with email {string}', async function (string) {
-
-});
+let apiClient: ApiClient;
 
 
 
-Given('the database contains a product {string} priced at {float}', async function (string, float) {
+let updateService: UpdateProd;       
+Given('a customer has {string} with quantity {int} in their cart', async function (string, int) {
+    updateService = new UpdateProd();
+    await updateService.verifyCartItemInDatabase(string, int);
 
 });
-
-
-
-Given('the user\'s cart contains {int} unit of {string} with unit price {float}', async function (int, string, float) {
-
-});
-
 
 
 When('the client sends a PATCH request to the cart quantity API to update {string} quantity to {int}', async function (string, int) {
+
+    await updateService.patchCartQuantity(string, int);
 
 });
 
@@ -33,16 +26,23 @@ When('the client sends a PATCH request to the cart quantity API to update {strin
 
 Then('the API response statuscode should be {int}', async function (int) {
 
+     await updateService.expectSuccessUpdate(int);
 });
 
 
 
 Then('the response should confirm the quantity is updated to {int}', async function (int) {
+    await updateService.verifyProductQuantity('Apple iPhone 13', int);
 
 });
 
 
 
 Then('the database cart entry should reflect quantity {int}', async function (int) {
-
+          await updateService.verifyDatabaseQuantity('Apple iPhone 13', int);
+});
+ 
+       
+Then('the response should include a recalculated total price', async function () {
+           await updateService.verifyRecalculatedTotalPrice('Apple iPhone 13',2)
 });

@@ -17,16 +17,33 @@ export class UpdateProd{
 
     }
 
-    async patchCartQuantity(productName: string,quantity: number): Promise<void> {
+    async verifyCartItemInDatabase(productName: string, expectedQuantity: number): Promise<void> {
+           const cartItems = dbManager.getCartItems();
+
+           const cartItem = cartItems.find((item: any) => item.productName === productName);
+
+           expect(cartItem).toBeDefined();
+           expect(cartItem.quantity).toBe(expectedQuantity);
+}
+
+    async patchCartQuantity(productName: string, quantity: number): Promise<void> {
 
       const startTime = Date.now();
-      const updatedProduct = dbManager.updateProduct(productName, quantity);
+      const updatedCartItem = dbManager.updateCartItemQuantity(productName, quantity);
 
       this.response = {
-        status: () => updatedProduct ? 200 : 404,
-        ok: !!updatedProduct,
-        json: async () => ({product: updatedProduct}),
-        text: async () => updatedProduct ? 'Updated': 'Product not found'
+        status: () => updatedCartItem ? 200 : 404,
+        ok: !!updatedCartItem,
+        json: async () =>
+          updatedCartItem
+            ? {
+                productName: updatedCartItem.productName,
+                quantity: updatedCartItem.quantity,
+                totalPrice: updatedCartItem.totalPrice,
+              }
+            : { error: 'Product not found in cart' },
+        text: async () =>
+          updatedCartItem ? 'Updated' : 'Product not found in cart',
      };
      this.responseTime = Date.now() - startTime;
 }
@@ -43,6 +60,8 @@ async expectSuccessUpdate(statusCode: number): Promise<void>{
     expect(this.response.status()).toBe(statusCode);
 
 }
+
+
 async verifyProductQuantity(productName: string, expectedQuantity: number): Promise<void> {
 
     const body = await this.response.json();
@@ -52,13 +71,23 @@ async verifyProductQuantity(productName: string, expectedQuantity: number): Prom
 }
 
 async verifyDatabaseQuantity(productName: string, expectedQuantity: number): Promise<void> {
+    const cartItem = dbManager.getCartItemByProductName(productName);
 
-    const cartItems = dbManager.getCartItems();
+    expect(cartItem).toBeDefined();
+    expect(cartItem.quantity).toBe(expectedQuantity);
+}
 
-    const item = cartItems.find((cartItem: any) => cartItem.productName === productName);
+async verifyRecalculatedTotalPrice(productName: string,expectedQuantity: number): Promise<void> {
 
-    expect(item).toBeDefined();
-    expect(item.quantity).toBe(expectedQuantity);
+  const product = dbManager.getProductByName(productName);
+
+  expect(product).toBeDefined();
+
+  const expectedTotal = Number(product.price) * expectedQuantity;
+
+  const responseBody = await this.response.json();
+
+  expect(responseBody.totalPrice).toBeCloseTo(expectedTotal,2);
 }
  
 

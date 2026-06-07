@@ -1,100 +1,111 @@
 [
   {
-    "description": "  As a customer\n  I want to update quantities in my cart\n  So that I can manage my purchase",
+    "description": "",
     "elements": [
       {
         "description": "",
-        "id": "update-shopping-cart-quantities-via-api;quantity-updated-successfully",
+        "id": "user-authentication-via-login-api;successful-authentication-with-valid-credentials",
         "keyword": "Scenario",
-        "line": 12,
-        "name": "Quantity updated successfully",
+        "line": 4,
+        "name": "Successful authentication with valid credentials",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 208993599
+              "duration": 184267499
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 7,
-            "name": "the test database is initialized using dbManager.js",
+            "line": 5,
+            "name": "a registered user exists in the system",
+            "match": {
+              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:13"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 6862200
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 8,
-            "name": "the database contains a user with email \"customer@example.com\"",
+            "line": 6,
+            "name": "the user provides valid email and password",
+            "match": {
+              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:31"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 2535599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "the client sends a POST request to the login API",
+            "match": {
+              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 443500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "the API response status code should be 200",
+            "match": {
+              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 461200
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 9,
-            "name": "the database contains a product \"Apple iPhone 13\" priced at 999.99",
+            "name": "the authentication should be successful",
+            "match": {
+              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:46"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 1342500
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
             "line": 10,
-            "name": "the user's cart contains 1 unit of \"Apple iPhone 13\" with unit price 999.99",
+            "name": "the response should contain an authentication token or session ID",
+            "match": {
+              "location": "tests\\back\\api\\steps\\loginValidationStep.ts:55"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 13,
-            "name": "the client sends a PATCH request to the cart quantity API to update \"Apple iPhone 13\" quantity to 2",
-            "result": {
-              "status": "undefined",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 14,
-            "name": "the API response statuscode should be 200",
-            "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 527999
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 15,
-            "name": "the response should confirm the quantity is updated to 2",
+            "line": 11,
+            "name": "the API response time should be less than 2 seconds",
+            "match": {
+              "location": "tests\\back\\api\\steps\\searchProdStep.ts:37"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 16,
-            "name": "the database cart entry should reflect quantity 2",
-            "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 572999
             }
           },
           {
@@ -102,7 +113,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1533209200
+              "duration": 901438800
             },
             "embeddings": [
               {
@@ -110,30 +121,26 @@
                 "mime_type": "text/plain"
               },
               {
-                "data": "U3RhdHVzOiBVTkRFRklORUQgfCBEdXJhdGlvbjogMHM=",
+                "data": "U3RhdHVzOiBQQVNTRUQgfCBEdXJhdGlvbjogMHM=",
                 "mime_type": "text/plain"
-              },
-              {
-                "data": "iVBORw0KGgoAAAANSUhEUgAABVYAAAMACAIAAABAXKuVAAAQAElEQVR4nOzYAQ0AIAzAsIfg3/LxwVoZvbs7AAAAwO/OAAAAAAEKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAfFd6rQAAAnpJREFUAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQIICAAAAgAQFAAAAAAkKAAAAABIUAAAAACQoAAAAAEhQAAAAAJCgAAAAACBBAQAAAECCAgAAAIAEBQAAAAAJCgAAAAASFAAAAAAkKAAAAABIUAAAAACQoAAAAAAgQQEAAABAggIAAACABAUAAAAACQoAAAAAEhQAAAAAJCgAAAAASFAAAAAAkKAAAAAAIEEBAAAAQMIDAAD//6mCWsQAAAAGSURBVAMA6fAJAHkTrUUAAAAASUVORK5CYII=",
-                "mime_type": "image/png"
               }
             ]
           }
         ],
         "tags": [
           {
-            "name": "@tag11",
-            "line": 11
+            "name": "@tag9",
+            "line": 3
           }
         ],
         "type": "scenario"
       }
     ],
-    "id": "update-shopping-cart-quantities-via-api",
-    "line": 1,
+    "id": "user-authentication-via-login-api",
+    "line": 2,
     "keyword": "Feature",
-    "name": "Update shopping cart quantities via API",
+    "name": "User Authentication via Login API",
     "tags": [],
-    "uri": "tests\\back\\api\\features\\updateProd.feature"
+    "uri": "tests\\back\\api\\features\\loginValidation.feature"
   }
 ]
